@@ -85,28 +85,28 @@ namespace Lab1
 
         private bool CheckCellsInExpression(Cell cell)
         {
-            foreach (string everycell in cellNameToCellObject.Keys) //видаляємо клітину зі списків інших клітин
+            foreach (string everycell in cellNameToCellObject.Keys) 
             {
                 if (cellNameToCellObject[everycell].cellsDependentFromIt.Contains(cell.Name))
                     cellNameToCellObject[everycell].cellsDependentFromIt.Remove(cell.Name);
             }
-            cellNameToCellObject[cell.Name].cellsItDependsOn.Clear(); //видаляємо всі залежності клітни від інших клітин
-            Regex regex = new Regex(@"[A-Z]+([0-9]+)");  //регулярний вираз, що задає формат імені клітини
+            cellNameToCellObject[cell.Name].cellsItDependsOn.Clear(); 
+            Regex regex = new Regex(@"[A-Z]+([0-9]+)"); 
             cell.Expression = FormulaTextBox.Text;
-            MatchCollection matches = regex.Matches(cell.Expression); //клітини, від яких залежить значення поточної
+            MatchCollection matches = regex.Matches(cell.Expression); 
             if (matches.Count > 0)  
             {
                 foreach (Match match in matches)
                 {
-                    if (cellNameToCellObject.ContainsKey(match.ToString())) //клітина з виразу існує у таблиці
+                    if (cellNameToCellObject.ContainsKey(match.ToString())) 
                     {
-                        cellNameToCellObject[match.ToString()].cellsDependentFromIt.Add(cell.Name); //додаємо до залежностей поточної клітини
+                        cellNameToCellObject[match.ToString()].cellsDependentFromIt.Add(cell.Name);
                     }
-                    else // помилка, клітина з ім'ям, що є у виразі, ще не існує
+                    else 
                     {
-                        foreach(Match cellmatch in matches) //видаляємо те, що додали до залежностей(бо потім очистимо клітину)
+                        foreach(Match cellmatch in matches)
                         {
-                            if(cellNameToCellObject.ContainsKey(cellmatch.ToString())) //не всі ще могли додатися
+                            if(cellNameToCellObject.ContainsKey(cellmatch.ToString())) 
                                 cellNameToCellObject[cellmatch.ToString()].cellsDependentFromIt.Remove(cell.Name);
                         }
                         MessageBox.Show("You wrote the expression in cell " + match.ToString() + ", that does not exist\n Clearing this cell", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -116,11 +116,11 @@ namespace Lab1
                     cellNameToCellObject[cell.Name].cellsItDependsOn.Add(match.ToString());
                 }
 
-                if (FindLoopDependencies(cell, cell))//вже додалися усі, але серед них є взаємозалежні,
+                if (FindLoopDependencies(cell, cell))
                 {
                     MessageBox.Show("Loop in expression\nClearing this cell", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     cell.Expression = "";
-                    cell.cellsItDependsOn.Clear(); // тому очищуємо/...
+                    cell.cellsItDependsOn.Clear(); 
                     foreach (Match cellmatch in matches) 
                     {
                         cellNameToCellObject[cellmatch.ToString()].cellsDependentFromIt.Remove(cell.Name);
@@ -154,7 +154,7 @@ namespace Lab1
                 cell.Expression = "";
                 return false;
             }
-            catch(Exception e) //про всяк випадок
+            catch(Exception e) 
             {
                 MessageBox.Show(e.Message);
             }
@@ -202,7 +202,7 @@ namespace Lab1
         {
             ++dataGrid.RowCount;
             dataGrid.Rows[_rowNumber].HeaderCell.Value = _rowNumber.ToString();
-            for (int j = 0; j < _colNumber; ++j)   //для кожної колонки до словника додається клітина з ім`ям "Останній рядок"+"Колонка"
+            for (int j = 0; j < _colNumber; ++j)  
             {
                 string cellName = Base26System.Convert(j) + _rowNumber.ToString(); //A + 3 = A3
                 Cell cell = new Cell(cellName, _rowNumber, j);
@@ -215,7 +215,7 @@ namespace Lab1
             string colname = Base26System.Convert(_colNumber); //A, B, ... , Z, AA, AB ...
             dataGrid.Columns.Add(colname, colname);
             dataGrid.Columns[_colNumber].SortMode = DataGridViewColumnSortMode.NotSortable;
-            for (int j = 0; j < _rowNumber; ++j)  //для кожного рядка до словника додається клітина з ім`ям "Рядок"+"Остання колонка"
+            for (int j = 0; j < _rowNumber; ++j)  
             {
                 string cellName = Base26System.Convert(_colNumber) + j.ToString(); //A + 3 = A3
                 Cell cell = new Cell(cellName, j, _colNumber);
@@ -254,7 +254,7 @@ namespace Lab1
             {
                 string cellToDeleteName = Base26System.Convert(i) + last_rowNumber.ToString();
                 cellNameToCellObject.Remove(cellToDeleteName);
-                foreach (string everycell in cellNameToCellObject.Keys) //для кожної видаленої клітини видаляютсья записи у інших клітинах про залежність перших від останніх
+                foreach (string everycell in cellNameToCellObject.Keys) 
                 {
                     if (cellNameToCellObject[everycell].cellsDependentFromIt.Contains(cellToDeleteName))
                         cellNameToCellObject[everycell].cellsDependentFromIt.Remove(cellToDeleteName);
@@ -294,7 +294,7 @@ namespace Lab1
             {
                 string cellToDeleteName = Base26System.Convert(last_colNumber) + i.ToString();
                 cellNameToCellObject.Remove(cellToDeleteName);
-                foreach (string everycell in cellNameToCellObject.Keys)//для кожної видаленої клітини видаляютсья записи у інших клітинах про залежність перших від останніх
+                foreach (string everycell in cellNameToCellObject.Keys)
                 {
                     if (cellNameToCellObject[everycell].cellsDependentFromIt.Contains(cellToDeleteName))
                         cellNameToCellObject[everycell].cellsDependentFromIt.Remove(cellToDeleteName);

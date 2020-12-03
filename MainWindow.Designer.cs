@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.ToolStrip = new System.Windows.Forms.ToolStrip();
             this.rowsLabel = new System.Windows.Forms.ToolStripLabel();
             this.rowsAddButton = new System.Windows.Forms.ToolStripButton();
@@ -175,10 +175,9 @@
             // 
             this.MenuStripFileOpen.BackColor = System.Drawing.SystemColors.Window;
             this.MenuStripFileOpen.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.MenuStripFileOpen.Image = ((System.Drawing.Image)(resources.GetObject("MenuStripFileOpen.Image")));
             this.MenuStripFileOpen.Name = "MenuStripFileOpen";
             this.MenuStripFileOpen.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.MenuStripFileOpen.Size = new System.Drawing.Size(172, 26);
+            this.MenuStripFileOpen.Size = new System.Drawing.Size(168, 22);
             this.MenuStripFileOpen.Text = "Open File";
             this.MenuStripFileOpen.Click += new System.EventHandler(this.MenuStripFileOpen_Click);
             // 
@@ -186,10 +185,9 @@
             // 
             this.MenuStripFileSave.BackColor = System.Drawing.Color.White;
             this.MenuStripFileSave.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.MenuStripFileSave.Image = ((System.Drawing.Image)(resources.GetObject("MenuStripFileSave.Image")));
             this.MenuStripFileSave.Name = "MenuStripFileSave";
             this.MenuStripFileSave.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.MenuStripFileSave.Size = new System.Drawing.Size(172, 26);
+            this.MenuStripFileSave.Size = new System.Drawing.Size(168, 22);
             this.MenuStripFileSave.Text = "Save As...";
             this.MenuStripFileSave.Click += new System.EventHandler(this.MenuStripFileSave_Click);
             // 
