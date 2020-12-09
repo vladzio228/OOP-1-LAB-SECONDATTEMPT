@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IDDQD_Spreadsheet", "IDDQD_Spreadsheet.csproj", "{ED580583-8542-4540-943A-40D587A7A958}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IDDQD_SpreadsheetTests", "..\IDDQD_SpreadsheetTests\IDDQD_SpreadsheetTests.csproj", "{362113B6-95B1-4DCE-86E8-1D23492DB91F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{ED580583-8542-4540-943A-40D587A7A958}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED580583-8542-4540-943A-40D587A7A958}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED580583-8542-4540-943A-40D587A7A958}.Release|Any CPU.Build.0 = Release|Any CPU
+		{362113B6-95B1-4DCE-86E8-1D23492DB91F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{362113B6-95B1-4DCE-86E8-1D23492DB91F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{362113B6-95B1-4DCE-86E8-1D23492DB91F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{362113B6-95B1-4DCE-86E8-1D23492DB91F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
